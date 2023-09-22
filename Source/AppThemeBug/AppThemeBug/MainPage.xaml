@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="AppThemeBug.MainPage"
+             Title="Hello world">
+   <Grid>
+        <Grid.Resources>
+            <toolkit:AppThemeColor x:Key="TextColorAndroid" Light="Red" Dark="Green" />
+            <toolkit:AppThemeColor x:Key="TextColoriOS" Light="Blue" Dark="Orange" />
+
+            <Style x:Key="AppThemeStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{toolkit:AppThemeResource TextColorAndroid}" />
+            </Style>
+
+            <Style x:Key="AppThemeOnPlatformStyle" TargetType="Label">
+                <Setter Property="TextColor">
+                    <OnPlatform>
+                        <On Platform="Android" Value="{toolkit:AppThemeResource TextColorAndroid}" />
+                        <On Platform="iOS" Value="{toolkit:AppThemeResource TextColoriOS}" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+
+            <Style x:Key="AppThemeOnPlatformTypeColorStyle" TargetType="Label">
+                <Setter Property="TextColor">
+                    <OnPlatform x:TypeArguments="Color">
+                        <On Platform="Android" Value="{toolkit:AppThemeResource TextColorAndroid}" />
+                        <On Platform="iOS" Value="{toolkit:AppThemeResource TextColoriOS}" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+
+            <Style x:Key="AppThemeOnPlatformTypeAppThemeColorStyle" TargetType="Label">
+                <Setter Property="TextColor">
+                    <OnPlatform x:TypeArguments="toolkit:AppThemeColor">
+                        <On Platform="Android" Value="{toolkit:AppThemeResource TextColorAndroid}" />
+                        <On Platform="iOS" Value="{toolkit:AppThemeResource TextColoriOS}" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+
+        </Grid.Resources>
+        <VerticalStackLayout>
+            <Label Text="This works"
+                   HorizontalOptions="Center"
+                   FontSize="Large"
+                   Style="{StaticResource AppThemeStyle}" />
+
+            <Label Text="Doesn't work"
+                   HorizontalOptions="Center"
+                   FontSize="Large"
+                   Style="{StaticResource AppThemeOnPlatformStyle}" />
+
+            <Label Text="Doesn't work"
+                   HorizontalOptions="Center"
+                   FontSize="Large"
+                   Style="{StaticResource AppThemeOnPlatformTypeColorStyle}" />
+
+            <Label Text="Doesn't work"
+                   HorizontalOptions="Center"
+                   FontSize="Large"
+                   Style="{StaticResource AppThemeOnPlatformTypeAppThemeColorStyle}" />
+
+        </VerticalStackLayout>
+
+    </Grid>
+
+</ContentPage>
