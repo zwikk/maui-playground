@@ -5,10 +5,8 @@
              x:Class="SourceGenBindings.MainPage">
     
     <Page.Resources>
-        <Style x:Key="C1" TargetType="local:CustomButton">
-            <Setter Property="Foo" Value="1" />
+        <Style TargetType="local:CustomButton">
             <Setter Property="Number" Value="42" />
-            
         </Style>
     </Page.Resources>
 
