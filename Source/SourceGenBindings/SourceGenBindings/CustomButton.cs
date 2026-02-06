@@ -9,9 +9,9 @@ public partial class CustomButton : Button
     //
     // THIS WORKS:
     //
-    // public static readonly BindableProperty NumberProperty = BindableProperty.Create(nameof(Number), typeof(int), typeof(CustomButton));
+    // public static readonly BindableProperty NumberProperty = BindableProperty.Create(nameof(Number), typeof(int?), typeof(CustomButton));
     //
-    // public int Number
+    // public int? Number
     // {
     //     get => (int)GetValue(NumberProperty);
     //     set => SetValue(NumberProperty, value);
