@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<bs:BottomSheet xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:bs="http://pluginmauibottomsheet.com"
+                xmlns:local="clr-namespace:BottomSheetTest"
+                x:Class="BottomSheetTest.MyBottomSheet"
+                x:DataType="local:MyBottomSheetViewModel"
+                SizeMode="FitToContent"
+                Padding="20"
+                BackgroundColor="AntiqueWhite">
+    <bs:BottomSheet.Content>
+        <bs:BottomSheetContent>
+            <bs:BottomSheetContent.ContentTemplate>
+                <DataTemplate x:DataType="local:MyBottomSheetViewModel">
+                    <Label Text="{Binding Title}" HorizontalOptions="Center" />
+                </DataTemplate>
+            </bs:BottomSheetContent.ContentTemplate>
+        </bs:BottomSheetContent>
+    </bs:BottomSheet.Content>
+</bs:BottomSheet>
